@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aurum Labs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#F4EFE7; --champagne:#D8C5A5; --taupe:#A99482; --mocha:#7E675A; --choc:#4A3428; --gold:#A68B5B;
+  --bg:#F4EFE7; --text:#4A3428; --muted:#7E675A; --line:#D8C5A5; --accent:#6F5530; --panel:#EBE3D6;
+  --serif:"Lexend",Verdana,"Trebuchet MS",sans-serif;
+  --sans:"Lexend",Verdana,"Trebuchet MS",sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#2A1E17; --text:#F4EFE7; --muted:#D8C5A5; --line:#5A4639; --accent:#C9AA72; --panel:#35261E; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#2A1E17; --text:#F4EFE7; --muted:#D8C5A5; --line:#5A4639; --accent:#C9AA72; --panel:#35261E; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-size:18px;line-height:1.85;letter-spacing:.02em;word-spacing:.12em;text-align:left;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+
+/* hero (always dark) */
+.hero{background:radial-gradient(900px 500px at 85% 10%,rgba(166,139,91,.28),transparent 60%),linear-gradient(180deg,#2A1E17,#4A3428);color:#F4EFE7;padding-bottom:110px}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:30px 0}
+.logo{font-family:var(--serif);font-size:26px;letter-spacing:.04em;text-decoration:none;color:#F4EFE7}
+.logo span{color:#C9AA72}
+.nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0;font-size:15px}
+.nav a{text-decoration:none;color:#D8C5A5}
+.nav a:hover{color:#F4EFE7}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,7vw,76px);line-height:1.2;letter-spacing:0;margin:96px 0 30px;max-width:14em}
+.hero p{font-size:19px;max-width:30em;color:#D8C5A5;margin:0 0 40px}
+.btn{display:inline-block;background:#C9AA72;color:#2A1E17;text-decoration:none;font-weight:500;padding:15px 30px;border-radius:2px;transition:background .2s}
+.btn:hover{background:#D8C5A5}
+.rule{width:72px;height:1px;background:#C9AA72;margin:0 0 28px}
+.actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-ghost{background:transparent;color:#F4EFE7;border:1px solid #C9AA72;padding:14px 30px}
+.btn-ghost:hover{background:rgba(201,170,114,.18)}
+.shop .wrap{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:48px}
+.shop h2{font-size:clamp(24px,3.2vw,32px);margin:0 0 8px}
+.shop p{margin:0;color:var(--muted);max-width:32em}
+.shop .btn{background:var(--choc);color:#F4EFE7}
+.shop .btn:hover{background:var(--mocha)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .shop .btn{background:#C9AA72;color:#2A1E17}}
+:root[data-theme="dark"] .shop .btn{background:#C9AA72;color:#2A1E17}
+
+/* sections */
+section{padding:96px 0 0}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(28px,4vw,40px);line-height:1.3;margin:0 0 16px}
+.lead{color:var(--muted);max-width:34em;margin:0 0 48px}
+
+/* services as an editorial list */
+.svc{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:1.1fr 1.6fr auto;gap:12px 40px;align-items:baseline;padding:30px 0;border-bottom:1px solid var(--line)}
+.row h3{font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.4;margin:0}
+.row p{margin:0;color:var(--muted)}
+.price{font-size:20px;font-weight:500;color:var(--accent);white-space:nowrap;text-align:right}
+.price small{display:block;font-family:var(--sans);font-size:13px;color:var(--muted)}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1.3fr;gap:48px}
+.about p{margin:0 0 18px;max-width:36em}
+.swatches{display:flex;height:14px;margin-top:8px;max-width:260px}
+.swatches i{flex:1}
+
+/* glossary */
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px 56px}
+.gloss h3{font-weight:500;font-size:22px;margin:0 0 18px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.gloss dl{margin:0}
+.gloss dt{font-weight:500;margin-top:20px}
+.gloss dd{margin:4px 0 0;color:var(--muted);max-width:34em}
+
+/* contact */
+.contact{margin-top:96px;background:var(--panel);padding:72px 0}
+.contact .wrap{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+.contact h2{margin:0}
+.contact .btn{background:var(--choc);color:#F4EFE7}
+.contact .btn:hover{background:var(--mocha)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .contact .btn{background:#C9AA72;color:#2A1E17}}
+:root[data-theme="dark"] .contact .btn{background:#C9AA72;color:#2A1E17}
+footer{padding:36px 0 48px;color:var(--muted);font-size:14px}
+
+@media (max-width:760px){
+  .nav ul{display:none}
+  .hero h1{margin-top:64px}
+  .row{grid-template-columns:1fr;gap:6px}
+  .price{text-align:left;margin-top:6px}
+  .about{grid-template-columns:1fr;gap:24px}
+  section{padding-top:72px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="logo" href="#top">Aurum <span>Labs</span></a>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#glossary">Glossary</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <h1 id="top">Technology, made to order.</h1>
+    <div class="rule"></div>
+    <p>Custom PCs, electronics, 3D printing and private AI, built by hand and set up properly.</p>
+    <div class="actions"><a class="btn" href="#contact">Start a project</a><a class="btn btn-ghost" href="https://samsoncooling.github.io/the-busnes-website-2/" target="_blank" rel="noopener noreferrer">Shop parts</a></div>
+  </div>
+</header>
+
+<main>
+  <section id="services">
+    <div class="wrap">
+      <h2>What we make and fix</h2>
+      <p class="lead">Every job is planned around what you actually need, then built, tested and explained.</p>
+      <div class="svc">
+        <div class="row">
+          <h3>Custom PC builds</h3>
+          <p>A machine planned around how you work or play, built, tested and cable-managed by hand.</p>
+          <div class="price">from £120<small>labour</small></div>
+        </div>
+        <div class="row">
+          <h3>PC repair and cleaning</h3>
+          <p>Diagnosis, upgrades, a proper dust-out and fixes for desktops and laptops.</p>
+          <div class="price">£40<small>health check</small></div>
+        </div>
+        <div class="row">
+          <h3>Electronics and Arduino</h3>
+          <p>Custom gadgets and automation, plus starter kits with clear guides and quality parts.</p>
+          <div class="price">from £35<small>starter kit</small></div>
+        </div>
+        <div class="row">
+          <h3>3D printing</h3>
+          <p>Custom parts, prototypes and replacements, printed from your design or ours.</p>
+          <div class="price">from £8<small>small part</small></div>
+        </div>
+        <div class="row">
+          <h3>Local AI setup</h3>
+          <p>Private AI tools running on your own hardware, so your data stays with you.</p>
+          <div class="price">from £90<small>setup session</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="shop" id="shop">
+    <div class="wrap">
+      <div>
+        <h2>Need the parts yourself?</h2>
+        <p>Buy the components, kits and tools we use from our trusted parts store.</p>
+      </div>
+      <a class="btn" href="https://samsoncooling.github.io/the-busnes-website-2/" target="_blank" rel="noopener noreferrer">Shop parts</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <h2>Made, not mass-produced</h2>
+        <div class="swatches" aria-hidden="true">
+          <i style="background:#F4EFE7"></i><i style="background:#D8C5A5"></i><i style="background:#A99482"></i><i style="background:#7E675A"></i><i style="background:#4A3428"></i><i style="background:#A68B5B"></i>
+        </div>
+      </div>
+      <div>
+        <p>Aurum is Latin for gold. We chose it because good technology should be treated like fine work: planned carefully, built with care and made to last.</p>
+        <p>We are a small studio, so every customer deals with the person doing the work. We explain what we did in plain words and show you how to look after it.</p>
+        <p>We also publish tutorials and build videos, and sell guides and kits for people who want to make things themselves.</p>
+        <p>Our <strong>USP</strong> is simple: one trusted studio for PCs, electronics, 3D printing and private AI. Our <strong>core competency</strong> is hands-on hardware skill. Our <strong>target market</strong> is hobbyists, students, creators and small businesses, and our <strong>competitive advantage</strong> is that you deal directly with the person doing the work.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="glossary">
+    <div class="wrap">
+      <h2>Business words, explained</h2>
+      <p class="lead">The plain-English terms we use when we talk about how Aurum Labs runs.</p>
+      <div class="gloss">
+        <div>
+          <h3>Money</h3>
+          <dl>
+            <dt>ROI (return on investment)</dt><dd>The gain you get from money you put in, compared with what it cost.</dd>
+            <dt>Break-even point</dt><dd>The sales level where income equals costs. No profit and no loss.</dd>
+            <dt>Cash flow</dt><dd>Money coming in and going out over a period of time. It keeps the business running day to day.</dd>
+            <dt>Accounts payable (AP)</dt><dd>Money the business owes to its suppliers.</dd>
+            <dt>Accounts receivable (AR)</dt><dd>Money customers owe the business for work already delivered.</dd>
+            <dt>Profit margin</dt><dd>How much of each pound of sales is left after costs.</dd>
+          </dl>
+        </div>
+        <div>
+          <h3>Strategy</h3>
+          <dl>
+            <dt>USP (unique selling point)</dt><dd>The one thing that makes a product or brand different from the rest.</dd>
+            <dt>Competitive advantage</dt><dd>An edge over rivals, such as lower costs or better technology.</dd>
+            <dt>Target market</dt><dd>The specific group of people or businesses the products are made for.</dd>
+            <dt>Scalability</dt><dd>The ability to grow sales without costs growing at the same speed.</dd>
+            <dt>Core competency</dt><dd>The main skills and know-how that make an organisation strong.</dd>
+          </dl>
+        </div>
+        <div>
+          <h3>Working life</h3>
+          <dl>
+            <dt>Bandwidth</dt><dd>The time and energy someone has for new tasks.</dd>
+            <dt>Synergy</dt><dd>When teams working together achieve more than they would alone.</dd>
+            <dt>Deliverable</dt><dd>A real output that must be finished, such as a report or a product.</dd>
+            <dt>Stakeholder</dt><dd>Anyone with an interest in how the business does.</dd>
+            <dt>Outsource</dt><dd>Paying an outside company to do part of the work.</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <div class="wrap">
+      <h2>Have something in mind?</h2>
+      <a class="btn" href="mailto:samcooling1456@gmail.com">Email the studio</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">Aurum Labs is a fictional concept brand. Prices shown are examples only.</div>
+</footer>
+
+</body>
+</html>
